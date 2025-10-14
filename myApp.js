@@ -5,15 +5,12 @@ let app = express();
 
 console.log("Hello World");
 
-// GET - LOGGER
-app.get("/logger", (req, res, next) => {
-    let string = req.method + " " + req.path + " " + req.ip;
-    console.log(string);
+// Assets at the /public route
+//app.use("/public", express.static(__dirname + "/public"));
+app.get("/json", (req, res, next) => {
+    console.log(req.method + " " +  req.path + " " + req.ip);
     next();
 });
-
-// Assets at the /public route
-app.use("/public", express.static(__dirname + "/public"));
 
 // Main route
 app.get("/", (req, res) => {
@@ -21,13 +18,13 @@ app.get("/", (req, res) => {
   });
 
 // GET JSON
-app.get("/json", (req, res) => {
+/*app.get("/json", (req, res) => {
     const message =
         process.env.MESSAGE_STYLE === "uppercase"
         ? "HELLO JSON"
         : "Hello json";
     
     res.json({message});
-});
+});*/
 
  module.exports = app;
