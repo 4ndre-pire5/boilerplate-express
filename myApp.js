@@ -6,7 +6,7 @@ let app = express();
 console.log("Hello World");
 
 // GET - LOGGER
-app.get((req, res, next) => {
+app.get("/logger", (req, res, next) => {
     let string = req.method + " " + req.path + " " + req.ip;
     console.log(string);
     next();
