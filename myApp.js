@@ -5,24 +5,22 @@ let app = express();
 
 console.log("Hello World");
 
+// Assets at the /public route
+app.use("/public", express.static(__dirname + "/public"));
+
+// Main route
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
   });
 
-// Normal usage
-//app.use(express.static(__dirname + "/public"));
-
-// Assets at the /public route
-app.use("/public", express.static(__dirname + "/public"));
-
 // GET JSON
 app.get("/json", (req, res) => {
-    if (process.env.MESSAGE_STYLE === "uppercase"){
-        res.json({message: "HELLO JSON"});
-    }
-    else {
-        res.json({message: "Hello json"});
-    }
+    const message =
+        process.env.MESSAGE_STYLE === "uppercase"
+        ? "HELLO JSON"
+        : "Hello json";
+    
+    res.json({message});
 });
 
  module.exports = app;
