@@ -18,12 +18,11 @@ app.use("/public", express.static(__dirname + "/public"));
 // GET JSON
 app.get("/json", (req, res) => {
     if (process.env.MESSAGE_STYLE === "uppercase"){
-        res.send({message: "HELLO JSON"});
+        res.json({message: "HELLO JSON"});
     }
     else {
-        res.send({message: "Hello json"});
+        res.json({message: "Hello json"});
     }
 });
-
 
  module.exports = app;
