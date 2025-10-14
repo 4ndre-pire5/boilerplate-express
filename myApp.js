@@ -13,5 +13,10 @@ app.get("/", (req, res) => {
 // Assets at the /public route
 app.use("/public", express.static(__dirname + "/public"));
 
+// GET JSON
+app.get("/json", (req, res) => {
+    res.send({message: "Hello json"});
+});
+
 
  module.exports = app;
