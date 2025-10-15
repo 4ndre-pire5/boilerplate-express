@@ -7,7 +7,7 @@ console.log("Hello World");
 
 // Assets at the /public route
 //app.use("/public", express.static(__dirname + "/public"));
-app.get("/json", (req, res, next) => {
+app.use((req, res, next) => {
     console.log(req.method + " " +  req.path + " " + req.ip);
     next();
 });
