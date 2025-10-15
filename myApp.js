@@ -30,11 +30,9 @@ app.get("/json", (req, res) => {
 
 // GET Time
 app.get("/now", (req, res, next) => {
-    req.time = new Date().toString();
-    console.log("Middleware executado -> req.time:", req.time);
+    req.time = new Date().toISOString();
     next();
 }, (req, res) => {
-    console.log("Handler final executado. Respondendo com:", { time: req.time });
     res.json({ time: req.time });
 });
 
