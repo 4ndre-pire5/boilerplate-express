@@ -30,7 +30,7 @@ app.get("/json", (req, res) => {
 
 // GET Time
 app.get("/now", (req, res, next) => {
-    req.time = new Date().toISOString();
+    req.time = new Date().toUTCString();
     next();
 }, (req, res) => {
     res.json({ time: req.time });
