@@ -1,7 +1,6 @@
-require('dotenv').config()
-
 let express = require('express');
 let app = express();
+require('dotenv').config()
 
 console.log("Hello World");
 
@@ -32,8 +31,10 @@ app.get("/json", (req, res) => {
 // GET Time
 app.get("/now", (req, res, next) => {
     req.time = new Date().toString();
+    console.log("Middleware executado -> req.time:", req.time);
     next();
 }, (req, res) => {
+    console.log("Handler final executado. Respondendo com:", { time: req.time });
     res.json({ time: req.time });
 });
 
