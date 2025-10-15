@@ -5,14 +5,14 @@ let app = express();
 
 console.log("Hello World");
 
-// Assets at the /public route
-app.use("/public", express.static(__dirname + "/public"));
-
 // Logger route
 app.use((req, res, next) => {
-    console.log(req.method + " " +  req.path + "-" + req.ip);
+    console.log(req.method + " " +  req.path + " - " + req.ip);
     next();
 });
+
+// Assets at the /public route
+app.use("/public", express.static(__dirname + "/public"));
 
 // Main route
 app.get("/", (req, res) => {
