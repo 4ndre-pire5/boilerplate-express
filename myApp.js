@@ -20,13 +20,21 @@ app.get("/", (req, res) => {
   });
 
 // GET JSON
-/*app.get("/json", (req, res) => {
+app.get("/json", (req, res) => {
     const message =
         process.env.MESSAGE_STYLE === "uppercase"
         ? "HELLO JSON"
         : "Hello json";
     
     res.json({message});
-});*/
+});
+
+// GET Time
+app.get("/now", (req, res, next) => {
+    req.time = newDate().toString();
+    next();
+}, (req, res) => {
+    res.json(req.time);
+});
 
  module.exports = app;
