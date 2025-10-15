@@ -31,10 +31,10 @@ app.get("/json", (req, res) => {
 
 // GET Time
 app.get("/now", (req, res, next) => {
-    req.time = newDate().toString();
+    req.time = new Date().toString();
     next();
 }, (req, res) => {
-    res.json(req.time);
+    res.json({time: req.time});
 });
 
  module.exports = app;
