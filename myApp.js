@@ -47,11 +47,15 @@ app.get("/:word/echo", (req, res) => {
 app.get("/name", (req, res) => {
     let first = req.query.first;
     let last = req.query.last;
-    res.json({ name: `${first} ${last}` })
+    res.json({ name: `${first} ${last}` });
 });
 
 // POST with body-parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/name", bodyParser.json());
+app.post("name", (req, res) => {
+    let name = req.body.first + " " + req.body.last;
+    res.json({ name: `${first} ${last}` });
+});
 
  module.exports = app;
