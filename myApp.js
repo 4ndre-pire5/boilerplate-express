@@ -38,7 +38,7 @@ app.get("/now", function(req, res, next) {
 
 // GET echo server
 app.get("/:word/echo", (req, res, next) => {
-    let param = req.params.word;
+    let param = req.params;
     res.json({ echo: param });
     next();
 });
