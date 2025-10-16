@@ -43,4 +43,10 @@ app.get("/:word/echo", (req, res, next) => {
     next();
 });
 
+// GET name
+app.get("/name", (req, res) => {
+    let name = req.query;
+    res.json({ name: name})
+});
+
  module.exports = app;
