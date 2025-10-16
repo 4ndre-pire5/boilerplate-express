@@ -53,7 +53,7 @@ app.get("/name", (req, res) => {
 // POST with body-parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/name", bodyParser.json());
-app.post("name", (req, res) => {
+app.post("/name", (req, res) => {
     let name = req.body.first + " " + req.body.last;
     res.json({ name: `${first} ${last}` });
 });
