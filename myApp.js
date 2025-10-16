@@ -54,7 +54,8 @@ app.get("/name", (req, res) => {
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/name", bodyParser.json());
 app.post("/name", (req, res) => {
-    let name = req.body.first + " " + req.body.last;
+    let first = req.query.first;
+    let last = req.query.last;
     res.json({ name: `${first} ${last}` });
 });
 
